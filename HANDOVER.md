@@ -12,6 +12,8 @@
 
 Production Next.js 16 landing page for the Newtown Athletic Club / Newtown Performance Institute success story. Brand tokens, logo, Geist fonts, kickers, primary CTA chrome, and form field styling match the live Xovera site. Copy and pipeline numbers follow the supplied brief; revenue/cohort conversion is not claimed.
 
+Header is logo + theme + Sign in + primary CTA only. Page section nav and the hamburger menu were removed.
+
 ## Why
 
 Xovera needed an evidence-led case page that qualifies established operators instead of collecting low-fit demo volume, and that does not attribute this result to Xovera AI.
