@@ -30,7 +30,7 @@ export function SiteHeader() {
             draggable={false}
           />
         </a>
-        <nav className="hidden items-center gap-1 md:flex" aria-label="Page">
+        <nav className="hidden items-center gap-1 xl:flex" aria-label="Page">
           <a className="rounded-md px-3 py-2 text-sm text-muted-foreground transition-fast hover:text-foreground" href="#proof">
             Proof
           </a>
@@ -65,7 +65,7 @@ export function SiteHeader() {
             href={XOVERA_GO}
             target="_blank"
             rel="noreferrer noopener"
-            className="hidden items-center gap-1 rounded-md px-3 py-2 text-sm text-muted-foreground transition-fast hover:text-foreground md:inline-flex"
+            className="hidden items-center gap-1 rounded-md px-3 py-2 text-sm text-muted-foreground transition-fast hover:text-foreground xl:inline-flex"
           >
             Sign in
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
@@ -73,7 +73,7 @@ export function SiteHeader() {
               <path d="M7 17 17 7" />
             </svg>
           </a>
-          <ButtonLink href="#review" variant="primary" size="md" className="hidden md:inline-flex">
+          <ButtonLink href="#review" variant="primary" size="md" className="hidden h-10 px-4 text-[13px] lg:inline-flex">
             Request a Growth Systems Review
           </ButtonLink>
           <button
