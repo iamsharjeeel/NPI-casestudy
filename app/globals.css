@@ -1,0 +1,302 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --radius: 0.875rem;
+  --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html.dark {
+  --background: 222 47% 3%;
+  --foreground: 210 40% 98%;
+  --card: 222 40% 6%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222 40% 6%;
+  --popover-foreground: 210 40% 98%;
+  --muted: 222 40% 8%;
+  --muted-foreground: 215 20% 70%;
+  --secondary: 222 40% 10%;
+  --secondary-foreground: 210 40% 98%;
+  --border: 222 40% 14%;
+  --input: 222 40% 10%;
+  --primary: 9 95% 58%;
+  --primary-foreground: 210 40% 98%;
+  --primary-glow: 22 100% 62%;
+  --primary-deep: 358 78% 42%;
+  --accent: 22 100% 62%;
+  --accent-foreground: 222 47% 3%;
+  --ring: 9 95% 58%;
+  --destructive: 0 84% 60%;
+  --success: 142 76% 36%;
+  --warning: 38 92% 50%;
+  --gradient-primary: linear-gradient(
+    135deg,
+    hsl(var(--primary-deep)) 0%,
+    hsl(var(--primary)) 55%,
+    hsl(var(--primary-glow)) 100%
+  );
+  --gradient-hero: radial-gradient(
+      60% 60% at 18% 12%,
+      hsl(var(--primary) / 0.35) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      50% 50% at 88% 90%,
+      hsl(var(--primary-glow) / 0.25) 0%,
+      transparent 60%
+    ),
+    linear-gradient(180deg, hsl(var(--background)) 0%, #030407 100%);
+  --gradient-subtle: radial-gradient(
+    80% 60% at 50% 0%,
+    hsl(var(--primary) / 0.18) 0%,
+    transparent 70%
+  );
+  --shadow-glow: 0 0 80px hsl(var(--primary) / 0.5);
+  --shadow-glow-soft: 0 0 120px hsl(var(--primary-glow) / 0.25);
+  --shadow-primary: 0 10px 40px -10px hsl(var(--primary) / 0.45);
+  --shadow-card: 0 4px 30px -4px #0009;
+  --glass-bg: hsl(var(--background) / 0.7);
+  --ring-soft: hsl(var(--primary-glow) / 0.3);
+  --hero-bg-stop: #030407;
+}
+
+html.light {
+  --background: 30 25% 97%;
+  --foreground: 20 14% 12%;
+  --card: 30 30% 99%;
+  --card-foreground: 20 14% 12%;
+  --popover: 30 30% 99%;
+  --popover-foreground: 20 14% 12%;
+  --muted: 30 20% 94%;
+  --muted-foreground: 25 8% 38%;
+  --secondary: 30 20% 92%;
+  --secondary-foreground: 20 14% 12%;
+  --border: 30 15% 86%;
+  --input: 30 25% 95%;
+  --primary: 9 95% 52%;
+  --primary-foreground: 30 30% 99%;
+  --primary-glow: 22 95% 50%;
+  --primary-deep: 358 78% 38%;
+  --accent: 22 95% 50%;
+  --accent-foreground: 30 30% 99%;
+  --ring: 9 95% 52%;
+  --destructive: 0 78% 50%;
+  --success: 142 70% 32%;
+  --warning: 38 92% 44%;
+  --gradient-primary: linear-gradient(
+    135deg,
+    hsl(var(--primary-deep)) 0%,
+    hsl(var(--primary)) 55%,
+    hsl(var(--primary-glow)) 100%
+  );
+  --gradient-hero: radial-gradient(
+      60% 60% at 18% 12%,
+      hsl(var(--primary) / 0.12) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      50% 50% at 88% 90%,
+      hsl(var(--primary-glow) / 0.1) 0%,
+      transparent 60%
+    ),
+    linear-gradient(180deg, hsl(var(--background)) 0%, #f5f2ef 100%);
+  --gradient-subtle: radial-gradient(
+    80% 60% at 50% 0%,
+    hsl(var(--primary) / 0.06) 0%,
+    transparent 70%
+  );
+  --shadow-glow: 0 0 60px hsl(var(--primary) / 0.22);
+  --shadow-glow-soft: 0 0 100px hsl(var(--primary-glow) / 0.12);
+  --shadow-primary: 0 10px 30px -10px hsl(var(--primary) / 0.3);
+  --shadow-card: 0 4px 30px -8px #422e241a;
+  --glass-bg: hsl(var(--background) / 0.78);
+  --ring-soft: hsl(var(--primary-glow) / 0.45);
+  --hero-bg-stop: #f5f2ef;
+}
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-primary-glow: hsl(var(--primary-glow));
+  --color-primary-deep: hsl(var(--primary-deep));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-ring: hsl(var(--ring));
+  --color-destructive: hsl(var(--destructive));
+  --color-success: hsl(var(--success));
+  --color-warning: hsl(var(--warning));
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", monospace;
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: hsl(var(--primary) / 0.28);
+}
+
+@property --conic-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes rotate-conic {
+  to {
+    --conic-angle: 360deg;
+  }
+}
+
+@utility bg-gradient-primary {
+  background-image: var(--gradient-primary);
+}
+
+@utility bg-gradient-hero {
+  background-image: var(--gradient-hero);
+}
+
+@utility bg-gradient-subtle {
+  background-image: var(--gradient-subtle);
+}
+
+@utility shadow-primary {
+  box-shadow: var(--shadow-primary);
+}
+
+@utility shadow-glow {
+  box-shadow: var(--shadow-glow);
+}
+
+@utility shadow-glow-soft {
+  box-shadow: var(--shadow-glow-soft);
+}
+
+@utility shadow-card {
+  box-shadow: var(--shadow-card);
+}
+
+@utility transition-smooth {
+  transition: all var(--transition-smooth);
+}
+
+@utility transition-fast {
+  transition: all var(--transition-fast);
+}
+
+@utility glass-surface {
+  background-color: var(--glass-bg);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+
+@utility heat-text {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--primary-glow)) 0%,
+    hsl(var(--primary)) 60%,
+    hsl(var(--primary-deep)) 100%
+  );
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+@utility text-gradient {
+  background: var(--gradient-primary);
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+@utility letterbox-divider {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    hsl(var(--primary-glow) / 0.45),
+    transparent
+  );
+  width: 100%;
+  height: 1px;
+}
+
+@utility conic-border {
+  isolation: isolate;
+  position: relative;
+}
+
+.conic-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0.9;
+  filter: blur(2px);
+  background: conic-gradient(
+    from var(--conic-angle),
+    hsl(var(--primary-deep)) 0deg,
+    hsl(var(--primary)) 90deg,
+    hsl(var(--primary-glow)) 180deg,
+    hsl(var(--primary-deep)) 360deg
+  );
+  animation: rotate-conic 6s linear infinite;
+}
+
+.conic-border::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: -1;
+  background: hsl(var(--card));
+}
+
+.skip-link:focus {
+  position: absolute;
+  width: auto;
+  height: auto;
+  margin: 0;
+  clip: auto;
+  overflow: visible;
+  white-space: normal;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .conic-border::before,
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
