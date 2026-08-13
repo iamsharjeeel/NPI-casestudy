@@ -1,0 +1,76 @@
+const DISPOSABLE = new Set([
+  "10minutemail.com",
+  "guerrillamail.com",
+  "guerrillamail.net",
+  "mailinator.com",
+  "tempmail.com",
+  "temp-mail.org",
+  "throwaway.email",
+  "yopmail.com",
+  "sharklasers.com",
+  "grr.la",
+  "dispostable.com",
+  "getnada.com",
+  "trashmail.com",
+  "fakeinbox.com",
+  "maildrop.cc",
+  "moakt.com",
+  "emailondeck.com",
+  "mintemail.com",
+  "mytemp.email",
+  "tmpmail.org",
+  "tmpmail.net",
+  "inboxkitten.com",
+  "mailnesia.com",
+  "getairmail.com",
+  "discard.email",
+  "discardmail.com",
+  "mailcatch.com",
+  "spambog.com",
+  "spamgourmet.com",
+  "jetable.org",
+  "kasmail.com",
+  "trash-mail.com",
+  "33mail.com",
+  "anonaddy.com",
+  "simplelogin.com",
+  "guerrillamailblock.com",
+  "pokemail.net",
+  "spam4.me",
+  "bccto.me",
+  "armyspy.com",
+  "cuvox.de",
+  "dayrep.com",
+  "einrot.com",
+  "fleckens.hu",
+  "gustr.com",
+  "jourrapide.com",
+  "rhyta.com",
+  "superrito.com",
+  "teleworm.us",
+  "mailnull.com",
+  "spamfree24.org",
+  "tempail.com",
+  "tempr.email",
+  "trashmail.me",
+  "wegwerfmail.de",
+  "getnada.com",
+  "dropmail.me",
+  "emailfake.com",
+  "crazymailing.com",
+  "tempinbox.com",
+  "mailtemp.net",
+  "burnermail.io",
+]);
+
+export function isDisposableEmail(email: string): boolean {
+  const domain = email.split("@")[1]?.toLowerCase().trim();
+  if (!domain) return true;
+  if (DISPOSABLE.has(domain)) return true;
+  const parts = domain.split(".");
+  if (parts.length > 2) {
+    const root = parts.slice(-2).join(".");
+    if (DISPOSABLE.has(root)) return true;
+  }
+  return false;
+}
